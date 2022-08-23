@@ -1,0 +1,26 @@
+main{
+    display: flex;
+    gap: 1rem;
+}
+
+.options{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.grid{
+    background-color: aquamarine;
+    display: grid;
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,1fr);
+}
+.grid div:hover{
+    background-color: rebeccapurple;
+}
+.box{
+    color: red;
+}
