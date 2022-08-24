@@ -1,26 +1,60 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+html{
+    font-size: 16px;
+    box-sizing: inherit;
+}
+header{
+    margin: auto;
+    width: 100%;
+    padding-bottom: 1rem;
+    text-align: center;
+}
 main{
     display: flex;
+    justify-content: center;
     gap: 1rem;
 }
 
+button{
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 1em 3em;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover{
+    background-color: rgb(121, 163, 253);
+}
+
 .options{
-    background-color: antiquewhite;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.options-actions{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 .grid{
-    background-color: aquamarine;
+    border: 3px solid #000;
     display: grid;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: repeat(16,1fr);
-    grid-template-rows: repeat(16,1fr);
-}
-.grid div:hover{
-    background-color: rebeccapurple;
+    width: 650px;
+    height: 650px;
 }
 .box{
-    color: red;
+    cursor: pointer;
+}
+
+#color-picker{
+    width: 75px;
+    height: 75px;
 }
