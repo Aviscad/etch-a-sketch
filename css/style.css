@@ -4,11 +4,18 @@
     padding: 0;
     box-sizing: content-box;
 }
+
 html{
     font-size: 16px;
     box-sizing: inherit;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
+
+body{
+    color: #000;
+}
+
 header{
     margin: auto;
     width: 100%;
@@ -16,22 +23,41 @@ header{
     text-align: center;
     font-size: 1.5rem;
 }
+
 main{
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
+footer{
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    font-size: .95em;
+    text-align: center;
+}
+
 button{
     background-color: transparent;
-    border: 2px solid #000;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     padding: 1em 3em;
     cursor: pointer;
     font-weight: bold;
 }
+
 button:hover{
-    background-color: antiquewhite;
+    background-color: #000;
+    color: #fff;
+}
+
+input[type="color"]{
+    border: 2px solid #000;
 }
 
 .options{
@@ -42,23 +68,56 @@ button:hover{
     padding: 1rem;
     gap: 1rem;
 }
+
 .options-actions{
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
+
 .grid{
-    border: 3px solid #000;
+    border: 3px solid rgb(0, 0, 0);
     display: grid;
-    width: 650px;
-    height: 650px;
+    width: 500px;
+    height: 500px;
 }
+
 .box{
     cursor: pointer;
+}
+
+.credits{
+    padding-top:1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: .65rem;
+}
+
+.credits a{
+    color: #D2D79F;
 }
 
 #color-picker{
     width: 75px;
     height: 75px;
     transition: background .5s ease-in-out;
+}
+
+@media only screen and (max-width:768px){
+    main{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .grid{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 769px){
+    main{
+        flex-direction:row;
+    }
 }

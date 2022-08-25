@@ -149,7 +149,7 @@ rainbow.addEventListener("click", () => {
       rgbArrayValues[1],
       rgbArrayValues[2]
     );
-  }, 500);
+  }, 2500);
 });
 
 eraser.addEventListener("click", () => {
