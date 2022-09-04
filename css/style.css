@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 *,*::after,*::before{
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@
 html{
     font-size: 16px;
     box-sizing: inherit;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
     overflow-x: hidden;
 }
 
