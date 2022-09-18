@@ -42,51 +42,15 @@ function drawInGrid(option) {
   if (option == 1) {
     //ADDING CLICK EVENT TO ALL DIVS
     let boxesArray = document.querySelectorAll(".box");
-    for (let i = 0; i < boxesArray.length; i++) {
-      let currentBox = boxesArray[i];
-      currentBox.addEventListener("mousedown", (e) => {
-        let div = e.target;
-        div.style.backgroundColor = colorPicker.value;
-      });
-      currentBox.addEventListener("mouseover", (e) => {
-        if (mouseDown) {
-          let div = e.target;
-          div.style.backgroundColor = colorPicker.value;
-        }
-      });
-    }
+    setClickListeners(boxesArray, 1);
   } else if (option == 2) {
     //ADDING CLICK EVENT TO ALL DIVS
     let boxesArray = document.querySelectorAll(".box");
-    for (let i = 0; i < boxesArray.length; i++) {
-      let currentBox = boxesArray[i];
-      currentBox.addEventListener("mousedown", (e) => {
-        let div = e.target;
-        div.style.backgroundColor = getRandomColor();
-      });
-      currentBox.addEventListener("mouseover", (e) => {
-        if (mouseDown) {
-          let div = e.target;
-          div.style.backgroundColor = getRandomColor();
-        }
-      });
-    }
+    setClickListeners(boxesArray, 2);
   } else if (option == 3) {
     //ADDING CLICK EVENT TO ALL DIVS
     let boxesArray = document.querySelectorAll(".box");
-    for (let i = 0; i < boxesArray.length; i++) {
-      let currentBox = boxesArray[i];
-      currentBox.addEventListener("mousedown", (e) => {
-        let div = e.target;
-        div.style.backgroundColor = "#fff";
-      });
-      currentBox.addEventListener("mouseover", (e) => {
-        if (mouseDown) {
-          let div = e.target;
-          div.style.backgroundColor = "#fff";
-        }
-      });
-    }
+    setClickListeners(boxesArray, 3);
   }
 }
 
@@ -108,6 +72,36 @@ function rgbToHex(r, g, b) {
 const rndNum = (min, max) =>
   Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) +
   Math.ceil(min);
+
+function setClickListeners(boxesArray, option) {
+  let optionsValue = "";
+  if (option == 1) {
+    optionsValue = colorPicker.value;
+  } else if (option == 3) {
+    optionsValue = "#fff";
+  }
+  for (let i = 0; i < boxesArray.length; i++) {
+    let currentBox = boxesArray[i];
+    currentBox.addEventListener("mousedown", (e) => {
+      let div = e.target;
+      if (option == 2) {
+        div.style.backgroundColor = getRandomColor();
+      } else {
+        div.style.backgroundColor = optionsValue;
+      }
+    });
+    currentBox.addEventListener("mouseover", (e) => {
+      if (mouseDown) {
+        let div = e.target;
+        if (option == 2) {
+          div.style.backgroundColor = getRandomColor();
+        } else {
+          div.style.backgroundColor = optionsValue;
+        }
+      }
+    });
+  }
+}
 
 function getRandomColor() {
   let r = rndNum(0, 255),
@@ -139,6 +133,7 @@ normal.addEventListener("click", () => {
 
 rainbow.addEventListener("click", () => {
   drawInGrid(2);
+  if (clearInterval(colorChanger) != undefined) clearInterval(colorChanger);
   colorChanger = setInterval(() => {
     let currentRGBCOlor = getRandomColor();
     let rgbArrayValues = currentRGBCOlor
